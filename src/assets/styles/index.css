@@ -5,9 +5,24 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: teal;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.item{
+width: 400px;
+padding: 30px;
+
+border-radius: 16px;
+}
+
+.texttodo{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
