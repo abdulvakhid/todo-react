@@ -8,14 +8,12 @@ const [value, setValue] = useState("");
 const [todos, setTodos] = useState([]);
 
 const getValue = (evt) => {
-
   setValue(evt.target.value);
 }
 
 
 const addTodo = (evt) => {
 evt.preventDefault();
-console.log(value)
 
 if(value.length === 0) {
   alert("Please enter text")
@@ -66,9 +64,9 @@ return (
         <h1 className='text-center mb-4  fw-bold text-white'>Your todos</h1>
 
         <form className='d-flex w-50 mx-auto mb-5' onSubmit={addTodo}>
-          <input className='form-control me-3' type="text" value={value} aria-label='enter your todo' placeholder='enter your todo'  
+          <input className='form-control me-3' type="text" value={value} aria-label='enter your todo' name='todo' placeholder='enter your todo'  
           onChange={getValue}/>
-          <button className='btn btn-outline-info' type='submit'>ADD</button>
+          <button className='btn btn-outline-info add' type='submit'>ADD</button>
         </form>
 
        <ul className='list-unstyled d-flex flex-column align-items-center justify-content-center'>
@@ -81,8 +79,8 @@ return (
               <p className='m-0 texttodo' style={{textDecoration: todo.isComplete ? "line-through" : "none"}}>{todo.text}</p>
               </div>
              <div>
-             <button className='btn btn-success me-3' onClick={() => handlEditTodo(todo.id)}>edit</button>
-              <button className='btn btn-danger' onClick={() => deleteTodo(todo.id)}>delete</button>
+             <button className='btn btn-success me-3 edit' onClick={() => handlEditTodo(todo.id)}>edit</button>
+              <button className='btn btn-danger delete' onClick={() => deleteTodo(todo.id)}>delete</button>
              </div>
           </li>)  )
           }
@@ -90,7 +88,6 @@ return (
      </div>
     </div>
   );
-
 }
 
 export default App;
