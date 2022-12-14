@@ -8,17 +8,19 @@ const [value, setValue] = useState("");
 const [todos, setTodos] = useState([]);
 
 const getValue = (evt) => {
-  if(evt.target.value ===  ""){
-    alert("Please enter task");
-  }else{
-    setValue(evt.target.value);
-  }
+
+  setValue(evt.target.value);
 }
 
 
 const addTodo = (evt) => {
 evt.preventDefault();
 console.log(value)
+
+if(value.length === 0) {
+  alert("Please enter text")
+  return;
+}
 
 const newTodo = {
 id: Math.random(),
@@ -51,7 +53,7 @@ function handlEditTodo(id){
 }
 
 function checkTodo(id){
-const checkedArr = [ ...todos]
+ const checkedArr = [ ...todos]
   let findItem = checkedArr.find(item => item.id === id);
   findItem.isComplete = !findItem.isComplete;
 
@@ -74,9 +76,9 @@ return (
           todos.map(todo => (
           <li className='d-flex mb-3 justify-content-between align-items-center item bg-light' key={todo.id}>
               
-              <div className='d-flex align-items-center'>
+              <div className='d-flex align-items-center part'>
               <input className='me-3' type="checkbox" onClick={() => checkTodo(todo.id)}/>
-              <p className='m-0 me-5 texttodo' style={{textDecoration: todo.isComplete ? "line-through" : "none"}}>{todo.text}</p>
+              <p className='m-0 texttodo' style={{textDecoration: todo.isComplete ? "line-through" : "none"}}>{todo.text}</p>
               </div>
              <div>
              <button className='btn btn-success me-3' onClick={() => handlEditTodo(todo.id)}>edit</button>

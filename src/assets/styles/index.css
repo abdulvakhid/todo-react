@@ -15,7 +15,7 @@ code {
 
 
 .item{
-width: 400px;
+width: 500px;
 padding: 30px;
 
 border-radius: 16px;
@@ -25,4 +25,8 @@ border-radius: 16px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.part{
+width: 60%;
 }
